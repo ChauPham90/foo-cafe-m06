@@ -96,26 +96,12 @@ a {
     font-size: 1.5em;
 }
 
-.three-items {
-    text-align: center;
-}
-
-.item {
-    display: inline-block;
-    width: 30%;
-    margin: 1%;
-    height: 50px;
-    background: #cccccc;
-    min-width: 150px;
-}
-
 @media only screen and (max-width: 961px) {
     /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
     .container {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         width: 100vw;
-        position: relative;
     }
     .content img {
         width: 50vw;
