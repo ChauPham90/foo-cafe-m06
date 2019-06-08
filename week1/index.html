@@ -1,78 +1,83 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Hack your future</title>
-    <link rel="stylesheet" href="assets/stylesheet/style.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style/reset.css" />
+    <link rel="stylesheet" href="assets/style/week1.css" />
     <script>
         function fTwo() {
-            document.getElementById("text").innerHTML = " Talk is cheap. Show me the code.";
-            document.getElementById("text").style.color = "black";
+            document.getElementById("text").innerHTML = " Hi, I am in your team :)";
+            document.getElementById("text").style.color = "white";
         }
     </script>
 </head>
 
 <body>
-    <div class="image_bg"></div>
-    <div id="container">
-        <div class="myname">
-            <h1 class="title">Chau Pham</h1>
-            <h2>FooCoding m06</h2>
-            <div class="javascript">
-                <form>
-                    <p class="title">Programing is easy.</p>
-                    <input type="button" value="Agree" name="true" onclick="fTwo()"> <br>
-                    <p id="text"></p>
-                </form>
-            </div>
+    <div class="container">
+        <div class="logo">
+            <h1 class="my-name">CHAU PHAM</h1>
+            <h2 class="my-class">FooCoding m06</h2>
         </div>
-        <div id="content">
-            <p><img src="assets/images/mypicture.jpg" alt="" /> </p>
-            <span class="function_define">function </span>
-            <span class="function_name">about_me()</span>
-            <span>{</span>
-            <p class="commentary_color">//</p>
-            <p class="commentary_padding commentary_color">Wow! It is super cool that I am writing code (unbelievable!).
-            </p>
-            <p class="commentary_color">//</p>
-            <span class="function_define">var</span> country <span class="color_red"> = </span> <span class="string">
+        <div class="jvs">
+            <form>
+                <input type="button" value="Click me" name="true" onclick="fTwo()"> <br>
+                <p id="text"></p>
+            </form>
+        </div>
+
+        <div class="content">
+            <div>
+                <p><img src="assets/images/mypicture.jpg" alt="" /> </p>
+                <span class="function_define">function </span>
+                <span class="function_name">about_me()</span>
+                <span>{</span>
+                <p class="commentary_color">/*</p>
+                <p class="commentary_padding commentary_color">Wow! It is super cool that I am writing code (unbelievable!).
+                </p>
+                <p class="commentary_color">*/</p>
+                <span class="function_define">var</span> country <span class="color_red"> = </span> <span class="string">
                 "Vietnam"</span>;<br>
-            <span class="function_define">var</span> personalities <span class="color_red"> = </span> <span class="string">"stubbon, honest, weird"</span>;<br>
-            <span class="function_define">var</span> interests <span class="color_red"> = </span> <span class="string">
+                <span class="function_define">var</span> personalities <span class="color_red"> = </span> <span class="string">"stubbon, honest, weird"</span>;<br>
+                <span class="function_define">var</span> interests <span class="color_red"> = </span> <span class="string">
                 "nature, education, travel, reading"</span>;<br>
-            <span class="function_define">var</span> career <span class="color_red"> = </span> <span class="string"> "sale,
+                <span class="function_define">var</span> career <span class="color_red"> = </span> <span class="string"> "sale,
                 consultant, customer-service."</span>;<br>
-            <span>docment.</span><span class="function_name">getElementById</span>(<span class="string">"chauPham"</span>).value
-            <span class="color_red"> = </span>country <span class="color_red"> + </span> personalities <span class="color_red"> +
-            </span> interests <span class="color_red"> + </span> career;<br>
+                <span>docment.</span><span class="function_name">getElementById</span>(<span class="string">"chauPham"</span>).value
+                <span class="color_red"> = </span>country <span class="color_red"> + </span> personalities <span class="color_red"> +
+                </span> interests <span class="color_red"> + </span> career;<br>
 
-            <p>}</p>
-
-            <span class="function_define">function </span>
-            <span class="function_name">studyingStrategies()</span>
-            <span class="code_white">{</span><br>
-            <span class="color_red">while</span>(<span class="true">true</span>) {
-            <ul class="commentary_color">//
-                <li>Playing game about coding and logic.</li>
-                <li>Practicing from basic syntax and design something fun.</li>
-                <li>Watching video channels about coding and tricks.</li>
-                <li>Searching and explore the sample code to get knowing how it works.</li>
-                <li>Try to avoid breaking the laptop.</li>//
-            </ul>
-            }<br> }
-            <br>
-            <br>
-            <p class="details">References</p>
-            <ol>
-                <li><a href="https://www.w3schools.com/">w3schools</a></li>
-                <li><a href="https://stackoverflow.com/">stackoverflow</a> </li>
-                <li><a href="https://validator.w3.org/">HTML validator</a></li>
-                <li><a href="http://www.psu.edu.sa/Colleges/Trade/DigitalLibrary/DocumentLibrary/Documents/head-first-javascript.22.pdf">Book
-                        " Head first Javascript".</a></li>
-            </ol>
+                <p>}</p>
+            </div>
+            <div>
+                <span class="function_define">function </span>
+                <span class="function_name">studyingStrategies()</span>
+                <span class="code_white">{</span><br>
+                <span class="color_red">while</span>(<span class="true">true</span>) {
+                <ul class="commentary_color">
+                    <li>/*</li>
+                    <li>Playing game about coding and logic.</li>
+                    <li>Practicing from basic syntax and design something fun.</li>
+                    <li>Watching video channels about coding and tricks.</li>
+                    <li>Searching and explore the sample code to get knowing how it works.</li>
+                    <li>Try to avoid breaking the laptop.</li>
+                    <li>*/</li>
+                </ul>
+                }<br> }
+            </div>
+            <div>
+                <p class="details">References</p>
+                <ol>
+                    <li><a href="https://www.w3schools.com/">w3schools</a></li>
+                    <li><a href="https://stackoverflow.com/">stackoverflow</a> </li>
+                    <li><a href="https://validator.w3.org/">HTML validator</a></li>
+                    <li><a href="http://www.psu.edu.sa/Colleges/Trade/DigitalLibrary/DocumentLibrary/Documents/head-first-javascript.22.pdf">Book
+                        "Head first Javascript".</a></li>
+                </ol>
+            </div>
         </div>
     </div>
 </body>
