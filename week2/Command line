@@ -1,0 +1,14 @@
+
+Create a hidden file with name "note.txt" : mkdir .note.txt
+How to display it using ls command : ls -a
+
+how to create multiple nested directories with one mkdir command : mkdir -p -- week2/these/folders/are/just/for/fun
+
+echo "test" > fun
+echo "another test" >> fun
+wc -c fun
+   18 fun
+there are 18 characters in the file
+
+How would you use echo command, so that output would be:
+testanother test : echo 'test''another test' >>fun
