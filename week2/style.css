@@ -1,0 +1,124 @@
+        #grid-floats {
+            background-color: grey;
+            position: relative;
+            margin: auto;
+            padding: 0;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            /* display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     grid-auto-rows: minmax(50px, auto);
+     row-gap: 1px;
+     column-gap: 2px:*/
+        }
+        
+        #grid-floats>li {
+            background-color: darkslategrey;
+        }
+        
+        #grid-floats ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #grid-floats .grid-item {
+            display: inline-block;
+            overflow: hidden;
+            padding: 0.025em;
+            margin: 0.25em;
+        }
+        
+        .gird-item:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        .grid-item img {
+            max-width: 15em;
+            height: auto;
+            padding: 0;
+            display: block;
+            clear: both;
+        }
+    }
+    .grid-item h3 p {
+        margin-left: 0;
+        margin: 2px 0 0 0;
+    }
+    p {
+        max-width: 15em;
+        display: inline-block;
+        font-size: 18px;
+    }
+    @media (min-width:641px) {}
+    @media (min-width:1025px) {
+        #grid-floats .grid-item:nth-child(1) {
+            width: 35em;
+            float: left;
+            margin: 0.25em;
+        }
+        
+        #grid-floats .grid-item:nth-child(1) img {
+            display: inline-block;
+        }
+        
+        #grid-floats .grid-item:nth-child(1) p {
+            font-family: Courier;
+            float: right;
+        }
+        
+        #grid-floats .grid-item:nth-of-type(-n+3) {
+            float: left;
+            clear: right;
+        }
+        
+        #grid-floats .grid-item:nth-of-type(n+4):nth-of-type(-n+15) {
+            clear: none;
+        }
+        
+        #grid-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        #grid-flex {
+            background-color: goldenrod;
+            position: relative;
+            margin: auto;
+            padding: 0;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+        
+        #grid-flex>li {
+            background-color: darkcyan;
+        }
+        
+        #grid-flex ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #grid-flex .grid-item {
+            display: inline-block;
+            overflow: hidden;
+            padding: 0.025em;
+            margin: 0.25em;
+        }
+        
+        #grid-flex .grid-item:nth-child(1) {
+            display: flex;
+            flex-grow: 1;
+        }
+        
+        #grid-flex .grid-item:nth-child(1) img {
+            vertical-align: middle;
+            max-width: 10em;
+            height: 10em;
+        }
