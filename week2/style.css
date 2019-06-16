@@ -1,158 +1,235 @@
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-    
-    h2,
-    h1 {
-        text-align: center;
-    }
-    
-    p {
-        width: 15em;
-        display: inline-block;
-        font-size: 1.025em;
-    }
-    
-    #grid-floats {
-        background-color: grey;
-        position: relative;
-        margin: 0;
-        padding: 2%;
-        height: auto;
-        overflow: hidden;
-    }
-    
-    #grid-floats>li {
-        background-color: darkslategrey;
-        float: left;
-    }
-    
-    #grid-floats .grid-item {
-        display: inline-block;
-        overflow: hidden;
-        padding: 1em;
-        margin: 0.25em;
-        align-items: center;
-    }
-    
-    .grid-item img {
-        width: 15em;
-        height: auto;
-        display: block;
-        clear: both;
-        box-sizing: border-box;
-    }
-    
-    @media (min-width: 320px) and (max-width: 480px) {
-        .grid-item img {
-            width: 8em;
-        }
-        #grid-floats .grid-item:nth-child(1) {
-            width: 100%;
+        ul {
+            list-style-type: none;
             margin: 0;
+            padding: 0;
         }
-        #grid-floats .grid-item:nth-child(1) img {
-            width: 50%;
+        
+        h2,
+        h1 {
+            text-align: center;
+        }
+        
+        p {
+            width: 15em;
             display: block;
-            float: left;
-            padding: 2%;
+            font-size: 1.025em;
+            word-wrap: break-word;
         }
-        #grid-floats .grid-item:nth-child(1) p {
-            display: inline;
+        
+        li {
+            transition: 500ms all ease-in-out;
         }
-        #grid-floats .grid-item:nth-child(n+2) {
-            width: 46%;
-            height: 23em;
+        
+        #grid-floats {
+            background-color: grey;
+            position: relative;
             margin: 1%;
-            padding: 1%
+            padding-left: 1%;
+            height: auto;
+            overflow: hidden;
         }
-    }
-    
-    @media (min-width: 768px) and (max-width: 1024px) {
-        #grid-floats .grid-item:nth-child(-n+2) {
-            width: 48.5%;
+        
+        #grid-floats>li {
+            background-color: darkslategrey;
             float: left;
-            padding: 4%;
         }
-        #grid-floats .grid-item:nth-of-type(n) {
-            height: 28em;
+        
+        #grid-floats .grid-item {
+            display: inline-block;
+            overflow: hidden;
+            padding: 1em;
+            margin: 0.25em;
+            align-items: center;
+        }
+        
+        .grid-item img {
+            width: 15em;
+            height: auto;
+            display: block;
+            clear: both;
             box-sizing: border-box;
         }
-        #grid-floats .grid-item:nth-of-type(n+3) {
-            width: 32%;
+        
+        @media (min-width: 320px) and (max-width: 480px) {
+            p {
+                width: unset;
+            }
+            .grid-item img {
+                width: 100%;
+            }
+            #grid-floats .grid-item:nth-child(1) {
+                width: 100%;
+                margin: 0;
+            }
+            #grid-floats .grid-item:nth-child(1) img {
+                width: 50%;
+                display: block;
+                float: left;
+                padding: 1%;
+            }
+            #grid-floats .grid-item:nth-child(1) p {
+                display: inline;
+            }
+            #grid-floats .grid-item:nth-child(n+2) {
+                width: 45.5%;
+                height: 27em;
+                padding: 1%;
+            }
+            #grid-floats .grid-item:nth-child(n+2)p {
+                font-size: 8px;
+                box-sizing: border-box;
+            }
         }
-        .grid-item img {
-            margin-bottom: 1%
+        
+        @media (min-width: 768px) and (max-width: 1024px) {
+            p {
+                width: unset;
+            }
+            .grid-item img {
+                width: 100%;
+            }
+            #grid-floats .grid-item:nth-child(-n+2) {
+                width: 48.5%;
+                float: left;
+                padding: 4%;
+            }
+            #grid-floats .grid-item:nth-of-type(n) {
+                height: 28em;
+                box-sizing: border-box;
+            }
+            #grid-floats .grid-item:nth-of-type(n+3) {
+                width: 32%;
+            }
+            .grid-item img {
+                margin-bottom: 1%
+            }
         }
-    }
-    
-    @media (min-width: 1025px) and (max-width: 1280px) {
-        #grid-floats .grid-item:nth-child(1) {
-            width: 35em;
-            float: left;
-            margin-left: 0.25em;
+        
+        @media (min-width: 1025px) and (max-width: 1280px) {
+            #grid-floats .grid-item:nth-child(1) {
+                width: 35em;
+                float: left;
+                margin-left: 0.25em;
+            }
+            #grid-floats .grid-item:nth-child(1) img {
+                display: block;
+                width: 95%;
+                height: 65%;
+                align-items: center;
+                margin-bottom: 2em;
+            }
+            #grid-floats .grid-item:nth-child(1) p {
+                font-family: Courier;
+                display: inline;
+            }
+            #grid-floats .grid-item:nth-of-type(n) {
+                height: 27em;
+            }
         }
-        #grid-floats .grid-item:nth-child(1) img {
+        /*grid-flex*/
+        
+        #grid-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        #grid-flex {
+            background-color: #73B08D;
+            position: relative;
+            margin: 1%;
+            padding-left: 1%;
+            width: 99%;
+            height: auto;
+            overflow: hidden;
+            align-items: stretch;
+        }
+        
+        #grid-flex>li {
+            background-color: #518B90;
+        }
+        
+        #grid-flex .grid-item img {
             display: block;
-            width: 95%;
-            height: 65%;
-            align-items: center;
-            margin-bottom: 2em;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 3%;
+            padding-left: 2%;
+            width: 100%;
+            height: auto;
         }
-        #grid-floats .grid-item:nth-child(1) p {
-            font-family: Courier;
-            display: inline;
+        
+        #grid-flex .grid-item h3,
+        p {
+            text-align: center;
+            display: block;
         }
-        #grid-floats .grid-item:nth-of-type(n) {
-            height: 27em;
+        
+        #grid-flex .grid-item {
+            display: inline-block;
+            overflow: hidden;
+            padding-left: 1%;
         }
-    }
-    /*grid-flex*/
-    
-    #grid-flex {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        flex-grow: 2 1 1;
-    }
-    
-    #grid-flex {
-        background-color: goldenrod;
-        position: relative;
-        margin: auto;
-        padding: 0;
-        width: 100%;
-        height: auto;
-        overflow: hidden;
-    }
-    
-    #grid-flex>li {
-        background-color: darkcyan;
-    }
-    
-    #grid-flex .grid-item img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 80%%;
-    }
-    
-    #grid-flex .grid-item h3,
-    p {
-        text-align: center;
-        display: block;
-    }
-    
-    #grid-flex .grid-item {
-        display: inline-block;
-        overflow: hidden;
-        margin: 0.25em;
-        width: 23%;
-    }
-    
-    #grid-flex .grid-item:first-child {
-        width: 50%;
-        display: inline;
-    }
+        
+        @media (min-width: 1025px) and (max-width: 1280px) {
+            #grid-flex .grid-item {
+                margin: 0.25em;
+                width: 23%;
+                height: 28em;
+                padding-right: 0.025em;
+            }
+            #grid-flex .grid-item:first-child {
+                display: flex;
+                align-items: center;
+                width: 48%;
+                display: inline;
+            }
+            #grid-flex .grid-item:first-child img {
+                width: 50%;
+            }
+            #grid-flex .grid-item:first-child p {
+                display: inline;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 1024px) {
+            p {
+                width: unset;
+            }
+            .grid-item img {
+                width: 100%;
+            }
+            #grid-flex .grid-item {
+                margin: 0.25em;
+                width: 31%;
+                height: 25em;
+                align-self: stretch;
+                padding: 0.25%;
+            }
+            #grid-flex .grid-item:nth-child(-n+2) {
+                width: 48%;
+                display: inline;
+                align-self: center;
+                height: 28em;
+            }
+            #grid-flex .grid-item:nth-child(-n+2)p {
+                display: inline;
+                text-align: center;
+            }
+        }
+        
+        @media (min-width: 320px) and (max-width: 480px) {
+            #grid-flex .grid-item:nth-child(1) {
+                width: 100%;
+                margin: 0;
+            }
+            #grid-flex .grid-item:nth-child(n+2) {
+                width: 46%;
+                margin: 1%;
+                padding: 1%
+            }
+            #grid-flex .grid-item:nth-child(1) img {
+                display: block;
+                padding: 2%;
+            }
+        }
