@@ -1,0 +1,9 @@
+1.mkdir command-line && touch command-line/blank
+2.for i in {1..5}; do echo "Hello" >> cml.txt;done
+3.echo cat > pets.txt
+  echo dog >> pets.txt
+  echo hamster >> pets.txt
+4.echo cat > commands.txt
+  echo ls >> commands.txt
+  echo pwd >> commands.txt
+5. comm -3 pets.txt commands.txt > lovelyCommands.txt
