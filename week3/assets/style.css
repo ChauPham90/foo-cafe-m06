@@ -599,7 +599,7 @@ ul {
         width: 50%;
         background-color: #262626;
         text-align: center;
-        font-size: 5em;
+        font-size: 3em;
         overflow: hidden;
         float: left;
         position: absolute;
@@ -616,7 +616,7 @@ ul {
     color: #dcdcdc;
     padding-right: 0;
     margin-right: 0;
-    padding-left: 3.36em;
+    padding-left: 2em;
 }
 
 .white {
@@ -624,7 +624,7 @@ ul {
     background-color: #dcdcdc;
     color: #262626;
     text-align: left;
-    font-size: 5em;
+    font-size: 3em;
     display: block;
     position: relative;
     left: 50.55%;
