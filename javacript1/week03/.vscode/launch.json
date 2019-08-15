@@ -1,0 +1,29 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "editor.detectIndentation": false,
+            "editor.formatOnSave": true,
+            "editor.formatOnType": true,
+            "editor.minimap.enabled": false,
+            "editor.renderIndentGuides": true,
+            "editor.tabSize": 2,
+            "files.autoSave": "onFocusChange",
+            "prettier.printWidth": 100,
+            "prettier.singleQuote": true,
+            "prettier.trailingComma": "all"
+          }
+       
+        
+
+       
+
+
+        
+        
+       
+    ]
+}
