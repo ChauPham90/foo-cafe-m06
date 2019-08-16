@@ -1,4 +1,5 @@
 'use strict';
+
 // strings!
 let myString = "hello,this,is,a,difficult,to,read,sentence";
 console.log(myString);
@@ -12,8 +13,7 @@ console.log(myString.replace(/[,]/g, ' '));
 let favoriteAnimals = ["blowfish", "capricorn", "giraffe"];
 favoriteAnimals.push('turtle');
 console.log(favoriteAnimals);
-// from [1] , 0 change, push "meerkat"
-favoriteAnimals.splice(1, 0, "meerkat");
+favoriteAnimals.splice(1, 0, "meerkat"); // from [1] , no change, push "meerkat"
 console.log('I think the array will be ["blowfish", "meerkat", "capricorn", "giraffe", "turtle"] ')
 console.log(favoriteAnimals);
 console.log('The array has a length of: ' + favoriteAnimals.length)
@@ -32,7 +32,7 @@ console.log('the result of function sumABC(1,2,3) is ' + sumABC(1, 2, 3));
 
 //2
 const colorCar = (color) => {
-    return "a " + color + " car"
+    return "a " + color + " car";
 }
 console.log(colorCar("red"));
 
@@ -44,6 +44,10 @@ const flowersMeaning = {
     }
     // function print out  all of object's properties and values.
 console.log(flowersMeaning)
+    // for in steps through the object's properties one at time, assigning each one in turn to the variable prop.
+for (var i in flowersMeaning) {
+    console.log(i + ": " + flowersMeaning[i]);
+}
 
 //4
 
@@ -74,7 +78,27 @@ vehicle("pink", 2, 3);
 console.log(3 === 3); // true
 
 //7
-const listOfVehicles = ["motorbike", "caravan", "bike", "bycicle", "carriage"]
+const listOfVehicles = ["motorbike", "caravan", "bike", "bycicle", "carriage"];
+
+// 10
+function makeAnAd() {
+    let ad = "";
+    for (let i = 0; i < listOfVehicles.length; i++) {
+        if (i == listOfVehicles.length - 1) {
+            ad = ad + " and " + listOfVehicles[i] + "s";
+        } else {
+            ad = ad + ", " + listOfVehicles[i] + "s";
+        }
+    }
+    ad = "Amazing Joe's Garage, we service cars" + ad + "."
+    console.log(ad);
+}
+makeAnAd()
+
+// 11 yes
+listOfVehicles.push("tank");
+console.log("Now the list of vehicles is " + listOfVehicles)
+makeAnAd();
 
 //8 get third element from above list by using [index] of array
 console.log("the third element is " + listOfVehicles[3]);
@@ -86,14 +110,6 @@ const vehicleArray = (color, code, age) => {
     } else console.log("a " + color + " new " + listOfVehicles[code - 1])
 }
 vehicleArray("green", 3, 1)
-
-//10
-
-for (let i = 0; i < listOfVehicles.length; i++) {
-    console.log("Amazing Joe's Garage, we service " + listOfVehicles[i] + "!");
-}
-
-//11 yes
 
 //12    
 const emptyObject = {};
@@ -111,7 +127,7 @@ const teachers = {
 teachers.Tommy = "css";
 teachers.Fady = "html & debugging";
 teachers.Albert = "git & github";
-teachers.Michel = "javascript";
+teachers.Macol = "javascript";
 teachers.Baraah = "homework";
 
 console.log(teachers)
@@ -154,7 +170,7 @@ console.log(o2 = o3);
 
 //17
 let bar = 42;
-typeof typeof typeof bar;
-//because when compare string with number, it will tranfer string to number
+typeof typeof bar;
+//because when compare string with number, string will always be tranfered to number.
 //so i guess it will return "string"
 console.log(typeof typeof bar);
