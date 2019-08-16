@@ -44,7 +44,7 @@ const flowersMeaning = {
     }
     // function print out  all of object's properties and values.
 console.log(flowersMeaning)
-    // for in steps through the object's properties one at time, assigning each one in turn to the variable prop.
+    // for in steps through the object's properties one at time, assigning each one in turn to the variable i.
 for (var i in flowersMeaning) {
     console.log(i + ": " + flowersMeaning[i]);
 }
@@ -113,6 +113,7 @@ vehicleArray("green", 3, 1)
 
 //12    
 const emptyObject = {};
+console.log(emptyObject);
 
 //13
 const teachers = {
