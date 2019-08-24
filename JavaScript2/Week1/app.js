@@ -19,7 +19,7 @@
             language: 'In English',
             author: 'by Elisabeth Robson, Eric T. Freeman',
             releseDate: " release date : 2014",
-            img: "headfirs.jpg"
+            img: "image/headfirs.jpg"
 
         },
         Learning_Responsive_Web_Design: {
@@ -27,7 +27,7 @@
             language: 'In English',
             author: ' by Clarissa Perterson',
             releseDate: " release date : 2014",
-            img: 'web.jpg'
+            img: 'image/web.jpg'
 
         },
         Twele_Rules_For_life: {
@@ -35,56 +35,56 @@
             language: 'In English',
             author: 'by Jordan Peterson',
             releseDate: " release date : 2018",
-            img: 'life.jpg'
+            img: 'image/life.jpg'
         },
         The_Subtle_Art_of_Not_Giving_a_Fuck: {
             title: 'The Subtle Art of Not Giving a F*ck',
             language: 'In English',
             author: 'by Mark Manson ',
             releseDate: " release date : 2016",
-            img: 'art.jpeg'
+            img: 'image/art.jpeg'
         },
         Once_Upon_A_Cow: {
             title: 'Once Upon a Cow',
             language: 'In English',
             author: 'by  Cruz Ph.D, Camilo',
             releseDate: " release date : 2009",
-            img: 'cow.jpg'
+            img: 'image/cow.jpg'
         },
         The_Hundred_Year_Old_Man_Who_Climbed_Out_of_The_Window_and_Disappeared: {
             title: 'The Hundred-Year-Old Man Who Climbed Out of the Window and Disappeared',
             language: 'In English',
             author: 'by Jonas Jonasson',
             releseDate: " release date : 2012",
-            img: 'oldman.jpg'
+            img: 'image/oldman.jpg'
         },
         The_art_of_Seduction: {
             title: 'The Art Of Seduction',
             language: 'In English',
             author: 'by Robert Greene',
             releseDate: " release date : 2004",
-            img: 'seduction.jpeg'
+            img: 'image/seduction.jpeg'
         },
         Good_To_Great: {
             title: 'Good To Great',
             language: 'In English',
             author: 'by Jim Collins',
             releseDate: " release date : 2001",
-            img: 'goodTogreat.jpg'
+            img: 'image/goodTogreat.jpg'
         },
         The_Godfather: {
             title: 'The Godfather',
             language: 'In Vietnamese',
             author: 'by  Mario Puzo',
             releseDate: " release date : 20102",
-            img: 'godfather.jpeg'
+            img: 'image/godfather.jpeg'
         },
         You_dont_know_Js_up_and_going: {
             title: 'You Dont Know JS - Up and Going',
             language: 'In English',
             author: 'by Kyle Simpson',
             releseDate: " release date : 2015",
-            img: 'upandgoing.jpg'
+            img: 'image/upandgoing.jpg'
         }
     };
     // add Ul with li inside
