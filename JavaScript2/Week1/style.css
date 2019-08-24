@@ -1,20 +1,26 @@
+/* MAIN CSS */
+
 h2 {
     color: #954b4b;
 }
 
 body {
-    margin: 20px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: medium;
+    background: #efe5d0;
+    margin: 15px;
 }
 
 img {
     margin: 20px;
 }
 
-body {
-    background: #efe5d0;
+p {
+    font-size: 1.4rem;
 }
 
 #header {
+    position: relative;
     background-color: #675c47;
     margin: 10px;
     height: 108px;
@@ -22,13 +28,52 @@ body {
 
 #header img {
     position: absolute;
-    top: 0;
+    top: -12px;
+    left: 0.5;
+    height: 100px;
+    width: 250px;
+}
+
+#header p {
+    text-align: center;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    line-height: 1.5;
+    display: inline-block;
+    font-weight: bold;
+}
+
+#cover img {
+    height: 500px;
+    width: 100%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 12%;
+    background-size: cover;
+    -webkit-background-size: cover;
+    /* For WebKit*/
+    -moz-background-size: cover;
+    /* Mozilla*/
+    -o-background-size: cover;
+    /* Opera*/
 }
 
 h1 {
-    text-align: center;
+    text-align: right;
     padding: 3%;
     color: #efe5d0;
+}
+
+img {
+    height: 475px;
+    width: 317px;
+}
+
+ul {
+    display: block;
+    position: relative;
+    padding-top: 0;
 }
 
 
