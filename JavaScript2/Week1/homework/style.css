@@ -1,0 +1,35 @@
+h2 {
+    color: #954b4b;
+}
+
+body {
+    margin: 20px;
+}
+
+img {
+    margin: 20px;
+}
+
+body {
+    background: #efe5d0;
+}
+
+#header {
+    background-color: #675c47;
+    margin: 10px;
+    height: 108px;
+}
+
+#header img {
+    position: absolute;
+    top: 0;
+}
+
+h1 {
+    text-align: center;
+    padding: 3%;
+    color: #efe5d0;
+}
+
+
+}
