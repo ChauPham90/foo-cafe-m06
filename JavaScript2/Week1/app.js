@@ -111,19 +111,19 @@
         document.querySelector(addId).appendChild(addH3)
     }
     const showBookListDetail = (event, addId) => {
-        let addH6 = document.createElement('p');
+        let addP = document.createElement('p');
         let addDetail = document.createTextNode(event);
-        addH6.appendChild(addDetail);
-        document.querySelector(addId).appendChild(addH6);
+        addP.appendChild(addDetail);
+        document.querySelector(addId).appendChild(addP);
     }
     const image = (event, addId) => {
-        let imgElement = document.createElement('img');
-        imgElement.setAttribute("src", event);
-        let addImg = document.createTextNode(event);
-        imgElement.appendChild(addImg);
-        document.querySelector(addId).appendChild(imgElement);
-    }
-
+            let imgElement = document.createElement('img');
+            imgElement.setAttribute("src", event);
+            let addImg = document.createTextNode(event);
+            imgElement.appendChild(addImg);
+            document.querySelector(addId).appendChild(imgElement);
+        }
+        // function invokes 4 functions above
     const makeBook = (propertyOfbookList, addId) => {
         addId = '#' + addId;
         console.log(addId) //#head_first_javascript_programing
@@ -133,18 +133,17 @@
         showBookListDetail(propertyOfbookList.releseDate, addId);
         image(propertyOfbookList.img, addId);
     };
-
+    // get arguments for bookList(propertyOfbookList, addId)
     const a = () => {
-        for (let i = 0; i < myFavariteBook.length; i++) {
-            let key = myFavariteBook[i];
-            console.log(key)
-            makeBook(bookList[key], key)
+            for (let i = 0; i < myFavariteBook.length; i++) {
+                let key = myFavariteBook[i];
+                console.log(key)
+                makeBook(bookList[key], key)
+            }
         }
-    }
+        //  the browser will run these function below when the page is fully loaded. 
     window.onload = () => {
         makeListArray();
         a()
-
     }
-
 }
