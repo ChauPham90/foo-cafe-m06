@@ -1,7 +1,6 @@
 'use strict';
 
-
-let myFavariteBook = [
+const myFavariteBook = [
     'head_first_javascript_programing',
     'Learning_Responsive_Web_Design',
     'Twele_Rules_For_life',
@@ -55,40 +54,40 @@ const bookList = {
         title: 'The Hundred-Year-Old Man Who Climbed Out of the Window and Disappeared',
         language: 'In English',
         author: 'by Jonas Jonasson',
-        releseDate: " release date : 2012",
+        releseDate: ' release date : 2012',
         img: 'image/oldman.jpg'
     },
     The_art_of_Seduction: {
         title: 'The Art Of Seduction',
         language: 'In English',
         author: 'by Robert Greene',
-        releseDate: " release date : 2004",
+        releseDate: ' release date : 2004',
         img: 'image/seduction.jpeg'
     },
     Good_To_Great: {
         title: 'Good To Great',
         language: 'In English',
         author: 'by Jim Collins',
-        releseDate: " release date : 2001",
+        releseDate: ' release date : 2001',
         img: 'image/goodTogreat.jpg'
     },
     The_Godfather: {
         title: 'The Godfather',
         language: 'In Vietnamese',
         author: 'by  Mario Puzo',
-        releseDate: " release date : 20102",
+        releseDate: ' release date : 20102',
         img: 'image/godfather.jpeg'
     },
     You_dont_know_Js_up_and_going: {
         title: 'You Dont Know JS - Up and Going',
         language: 'In English',
         author: 'by Kyle Simpson',
-        releseDate: " release date : 2015",
+        releseDate: ' release date : 2015',
         img: 'image/upandgoing.jpg'
     }
 };
 // add Ul with li inside
-let makeAList = () => {
+const makeAList = () => {
     myFavariteBook.forEach((item) => {
         const addUl = document.createElement('ul');
         let addLi = document.createElement('li');
@@ -119,7 +118,7 @@ const showBookListDetail = (event, addId) => {
 }
 const showBookImage = (event, addId) => {
         let imgElement = document.createElement('img');
-        imgElement.setAttribute("src", event);
+        imgElement.setAttribute('src', event);
         let addImg = document.createTextNode(event);
         imgElement.appendChild(addImg);
         document.querySelector(addId).appendChild(imgElement);
