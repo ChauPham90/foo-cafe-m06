@@ -66,15 +66,15 @@ h1 {
 }
 
 img {
-    height: 475px;
-    width: 317px;
+    height: 620px;
+    width: 510px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 ul {
     display: block;
     position: relative;
     padding-top: 0;
-}
-
-
 }
