@@ -6,7 +6,7 @@ function doubleOddNumbers(numbers) {
     numbers = oddNumber.map((multi) => multi * 2);
     return numbers;
 }
-const myNumbers = [1, 2, 3, 4];
+const myNumbers = [1, 2, 3];
 console.log(doubleOddNumbers(myNumbers));
 // Do not change or remove anything below this line
 module.exports = {

@@ -11,9 +11,11 @@ function fetchPokemonData() {
 function addImg() {
     const obj = JSON.parse(fetchPokemonData());
     const picturesObject = obj.sprites;
+
+    const regex = /\.[png|jpg]$/g;
     for (var i in picturesObject) {
-        var myArray = /d(b+)d/g.exec(".png");
-        if (picturesObject[i] != myArray) {
+        var isPng = regex.test(picturesObject[i]); // true false statement
+        if (isPng) {
             let imageUrl = picturesObject[i];
             let img = document.createElement("img");
             img.src = imageUrl;
