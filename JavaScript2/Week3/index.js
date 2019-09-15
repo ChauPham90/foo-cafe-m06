@@ -121,11 +121,12 @@ function routeLengthInKilometers(route) {
             const nextStation = trainStations[nextCity];
             // totalLength is not defined.
             //totalLength = totalLengthInKm + distanceBetweenStationsInMeters(currentStation, nextStation);
-            const totalLength = totalLengthInKm + distanceBetweenStationsInMeters(currentStation, nextStation);
+            // const totalLength = totalLengthInKm + distanceBetweenStationsInMeters(currentStation, nextStation);
+            const totalLength = distanceBetweenStationsInMeters(currentStation, nextStation);
             //totalLength declared and assigned its value but never read
             //totalLengthInKm = metersToKilometers(totalLengthInKm);
             // replace totalLengthInKm to totalLength
-            totalLengthInKm = metersToKilometers(totalLength);
+            totalLengthInKm = totalLengthInKm + metersToKilometers(totalLength);
         }
         return totalLengthInKm;
     }
@@ -141,9 +142,9 @@ function shortestRoute(routes) {
         for (let index = 1; index < routes.length - 1; index++) {
             const route = routes[index];
             // according the condition below, show the longest route
-            // if (routeLengthInKilometers(currentShortestRoute) < routeLengthInKilometers(route)) {
-           // change the condition
             if (routeLengthInKilometers(currentShortestRoute) > routeLengthInKilometers(route)) {
+                // change the condition
+                // if (routeLengthInKilometers(currentShortestRoute) < routeLengthInKilometers(route)) {
                 //  currentShortestRoute is constant, can not change it value
                 currentShortestRoute = route;
             }
