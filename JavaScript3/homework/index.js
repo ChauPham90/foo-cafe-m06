@@ -9,6 +9,7 @@
         xhr.onload = () => {
             if (xhr.status < 400) {
                 cb(null, xhr.response);
+                console.log(xhr.response);
             } else {
                 cb(new Error(`Network error: ${xhr.status} - ${xhr.statusText}`));
             }
@@ -39,12 +40,12 @@
             } else {
                 createAndAppend('pre', root, { text: JSON.stringify(data, null, 2) });
             }
-            console.log(data)
-
         });
+
+        // get repos
     }
 
     const REPOS_URL = 'https://api.github.com/orgs/foocoding/repos?per_page=100';
-
+    console.log(main(REPOS_URL));
     window.onload = () => main(REPOS_URL);
 }
