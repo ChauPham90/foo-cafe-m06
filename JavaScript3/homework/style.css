@@ -1,95 +1,206 @@
-.alert-error {
-    color: red;
-}
-
-#container {
-    display: flex;
-    justify-content: center;
-}
-
-.p {
-    text-align: left;
-    padding-right: 10px;
-    font-family: sans-serif;
-    font-size: 20px;
-}
-
-#ul {
-    -webkit-column-count: 4;
-    -moz-column-count: 4;
-    column-count: 4;
-    -webkit-column-gap: 10px;
-    -moz-column-gap: 10px;
-    column-gap: 10px;
+ul {
     list-style-type: none;
 }
 
-.li {
+li {
     text-align: center;
-    display: inline-block;
-    width: 100%;
-    padding-bottom: 20px;
-    margin-right: 5px;
-    padding-right: 10px
 }
 
 .img {
     width: 100px;
+    height: auto;
+    padding-bottom: 15px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
+    clear: both;
 }
 
 #a {
     display: block;
     font-weight: bold;
-    color: grey;
-    font-size: 0.9em;
+    color: #3a56cd;
+    font-size: 1.2em;
     text-decoration: none;
     font-family: "Open Sans", helvetica, arial, sans-serif;
+    padding-bottom: 0.5em;
 }
 
-.select {
+#repoInfo {
     display: block;
-    font-size: 16px;
-    font-family: sans-serif;
-    font-weight: 700;
-    color: #444;
-    line-height: 1.3;
-    padding: .6em 1.4em .5em .8em;
-    width: 30%;
-    max-width: 100%;
-    box-sizing: border-box;
-    margin: 0;
-    border: 1px solid #aaa;
-    box-shadow: 0 1px 0 1px rgba(0, 0, 0, .04);
-    border-radius: .5em;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: #fff;
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'), linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
-    background-repeat: no-repeat, repeat;
-    background-position: right .7em top 50%, 0 0;
-    background-size: .65em auto, 100%;
 }
 
-.select:-ms-expand {
+#repoInfo.active {
+    display: none
+}
+
+body {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    text-align: center;
+}
+
+header h1 {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 20px;
+    color: #a0cc73;
+}
+
+nav {
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #86beb3;
+}
+
+a,
+button,
+label {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+nav a {
+    display: block;
+    line-height: 48px;
+    font-size: 18px;
+    color: #3a596d;
+    text-align: center;
+    transition: background-color .2s;
+}
+
+nav a:hover {
+    background-color: #000;
+}
+
+section {
     display: none;
 }
 
-.select:hover {
-    border-color: #888;
+section:target {
+    display: block;
 }
 
-.select:focus {
-    border-color: #aaa;
-    box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
-    box-shadow: 0 0 0 3px -moz-mac-focusring;
-    color: #222;
-    outline: none;
+footer p {
+    color: #a0cc73;
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.select option {
-    font-weight: normal;
+main {
+    display: flex;
+    min-height: 85vh;
+}
+
+.content {
+    position: relative;
+    flex-grow: 1;
+    background-color: #a0cc73;
+}
+
+header,
+footer {
+    background-color: #3a596d;
+}
+
+nav,
+aside {
+    min-width: 200px;
+    max-width: 250px;
+    height: auto;
+}
+
+#home img {
+    display: block;
+    width: 100%;
+}
+
+.contri {
+    vertical-align: top;
+    display: block;
+    left: -50%;
+    /* or right 50% */
+    text-align: center;
+    width: auto;
+}
+
+.contri>.img {
+    dispay: block;
+    position: relative;
+    left: 50%;
+}
+
+.contri>#a {
+    position: relative;
+    left: 50%;
+}
+
+.divLinkAndImg {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    padding: 20px;
+    width: auto;
+}
+
+span {
+    text-transform: uppercase;
+}
+
+.h2 {
+    width: 300px;
+    height: auto;
+    margin: 0 auto;
+    box-shadow: 5px 5px 19px #ccc;
+    padding: 10px;
+}
+
+.h2 #span {
+    text-align: center;
+    padding: 20px;
+}
+
+.moduleDetail {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: "VT323", monospace;
+    font-size: 24px;
+    font-weight: 5px;
+    color: #3a596d;
+}
+
+@media screen and (max-width: 620px) {
+    main {
+        flex-direction: column;
+    }
+    nav {
+        order: 1;
+    }
+    nav ul {
+        text-align: center;
+    }
+    nav figure img {
+        width: 100px;
+        float: left;
+    }
+    nav {
+        min-width: none;
+        max-width: none;
+    }
 }

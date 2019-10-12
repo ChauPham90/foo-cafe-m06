@@ -12,12 +12,36 @@
         });
         return elem;
     }
-
-
     async function fetchJSONByUsingAwait(url) {
         let response = await fetch(url);
         let dataList = await response.json();
-        return dataList
+        dataList.sort((a, b) => a.name.localeCompare(b.name));
+        console.log(dataList)
+        dataList.map((item) => {
+            const ulE = document.querySelector('.ul')
+            const val = createListE(item, ulE);
+            async function fetchContributorUrl() {
+                let responseContributorList = await fetch(item.contributors_url);
+                let dataListContributor = await responseContributorList.json();
+                dataListContributor.map((contributor) => {
+                    const divContri = val.querySelector('.contri');
+                    const divLinkAndImg = createAndAppend('div', divContri, {
+                        class: 'divLinkAndImg'
+                    });
+                    createAndAppend('img', divLinkAndImg, {
+                        class: 'img',
+                        src: contributor.avatar_url,
+                    });
+                    createAndAppend('a', divLinkAndImg, {
+                        id: 'a',
+                        text: contributor.login,
+                        href: contributor.html_url,
+                    });
+
+                })
+            }
+            fetchContributorUrl()
+        })
     }
 
     const createListE = (data, element) => {
@@ -74,52 +98,14 @@
         return sectionE
     }
 
-
-
     function main(url) {
         const root = document.getElementById('root');
-        const ulE = document.querySelector('.ul')
-        async function waitJson() {
-            const data = await fetchJSONByUsingAwait(url);
-            return data
-        }
-        waitJson().then((data) => {
-            //data.sort((a, b) => a.data.localeCompare(b.data));
-            data.map((item) => {
-                const val = createListE(item, ulE);
-                const fetchContributorUrl = () => {
-                    return fetch(item.contributors_url)
-                        .then((response) => { return response.json() })
-                        .then((data) => {
-                            data.map((contributor) => {
-                                const divContri = val.querySelector('.contri');
-                                const divLinkAndImg = createAndAppend('div', divContri, {
-                                    class: 'divLinkAndImg'
-
-                                });
-
-                                createAndAppend('img', divLinkAndImg, {
-                                    class: 'img',
-                                    src: contributor.avatar_url,
-
-                                });
-                                createAndAppend('a', divLinkAndImg, {
-                                    id: 'a',
-                                    text: contributor.login,
-                                    href: contributor.html_url,
-
-                                });
-                            })
-                        })
-                }
-                fetchContributorUrl()
-            })
-        })
+        fetchJSONByUsingAwait(url);
 
     }
 
     const REPOS_URL = 'https://api.github.com/orgs/foocoding/repos?per_page=100';
-    //const REPOS_URL = 'https://api.github.com/orgs/foocng/repos?per_page=100';
+
     function showContent() {
         if (document.querySelectorAll("section:target").length == 0) {
             window.location = "#home";
