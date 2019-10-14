@@ -12,6 +12,16 @@
         });
         return elem;
     }
+
+    // const navItems = dataList.map(item => item.name)
+    // const nav = navItems.map(item => ({
+    //     // create html
+    //     // include id's, href
+    //     //add eventlistener
+    //     // inside of eventlistener add the SPA logic to prevent browser f
+    // }))
+
+
     async function fetchJSONByUsingAwait(url) {
         let response = await fetch(url);
         let dataList = await response.json();
@@ -19,8 +29,16 @@
         console.log(dataList)
         dataList.map((item) => {
             const ulE = document.querySelector('.ul')
-            const val = createListE(item, ulE);
-            async function fetchContributorUrl() {
+            const liE = createAndAppend('li', ulE, {
+                class: 'li'
+            });
+            const aHref = createAndAppend('a', liE, {
+                text: item.name,
+                href: `#${item.name}`
+            });
+            console.log(aHref.text)
+
+            async function fetchContributorUrl(val) {
                 let responseContributorList = await fetch(item.contributors_url);
                 let dataListContributor = await responseContributorList.json();
                 dataListContributor.map((contributor) => {
@@ -40,20 +58,20 @@
 
                 })
             }
-            fetchContributorUrl()
+            aHref.addEventListener('click', event => {
+                let val = document.querySelector('#' + item.name)
+                if (val == null) {
+                    val = createListE(item);
+                    fetchContributorUrl(val)
+                }
+                history.pushState(null, null, event.target.href)
+                event.stopPropagation();
+            });
         })
     }
 
-    const createListE = (data, element) => {
-
+    const createListE = (data) => {
         const divContentE = document.querySelector('.content')
-        const liE = createAndAppend('li', element, {
-            class: 'li'
-        });
-        const aHref = createAndAppend('a', liE, {
-            text: data.name,
-            href: `#${data.name}`
-        });
         const sectionE = createAndAppend('section', divContentE, {
             id: data.name
         });
@@ -89,12 +107,6 @@
         const divE2 = createAndAppend('div', divE, {
             class: 'contri',
         });
-        const showHidenInfo = () => {
-            const repoInfo =
-                sectionE.querySelector('#repoInfo');
-            repoInfo.classList.toggle("active")
-        }
-        sectionE.addEventListener('click', () => showHidenInfo());
         return sectionE
     }
 
