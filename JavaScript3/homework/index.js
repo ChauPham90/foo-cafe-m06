@@ -13,36 +13,45 @@
         return elem;
     }
     async function fetchJSONByUsingAwait(url) {
-        let response = await fetch(url);
-        let dataList = await response.json();
-        dataList.sort((a, b) => a.name.localeCompare(b.name));
-        // console.log(dataList)
-        dataList.map((item) => {
-            const ulE = document.querySelector('.ul')
-            const val = createListE(item, ulE);
-            async function fetchContributorUrl() {
-                let responseContributorList = await fetch(item.contributors_url);
-                let dataListContributor = await responseContributorList.json();
-                dataListContributor.map((contributor) => {
-                    const divContri = val.querySelector('.contri');
-                    const divLinkAndImg = createAndAppend('div', divContri, {
-                        class: 'divLinkAndImg'
-                    });
-                    createAndAppend('img', divLinkAndImg, {
-                        class: 'img',
-                        src: contributor.avatar_url,
-                    });
-                    createAndAppend('a', divLinkAndImg, {
-                        id: 'a',
-                        text: contributor.login,
-                        href: contributor.html_url,
-                    });
+        let response;
+        try {
+            response = await fetch(url);
+            let dataList = await response.json();
+            dataList.sort((a, b) => a.name.localeCompare(b.name));
+            console.log(dataList)
+            dataList.map((item) => {
+                const ulE = document.querySelector('.ul')
+                const val = createListE(item, ulE);
+                async function fetchContributorUrl() {
+                    // let responseContributorList = await fetch(item.contributors_url);
+                    let dataListContributor = await responseContributorList.json();
+                    dataListContributor.map((contributor) => {
+                        const divContri = val.querySelector('.contri');
+                        const divLinkAndImg = createAndAppend('div', divContri, {
+                            class: 'divLinkAndImg'
+                        });
+                        createAndAppend('img', divLinkAndImg, {
+                            class: 'img',
+                            src: contributor.avatar_url,
+                        });
+                        createAndAppend('a', divLinkAndImg, {
+                            id: 'a',
+                            text: contributor.login,
+                            href: contributor.html_url,
+                        });
 
-                })
-            }
-            fetchContributorUrl()
-        })
+                    })
+                }
+                fetchContributorUrl()
+            })
+        } catch (err) {
+            console.log('found errs' + err.message)
+        }
+
     }
+
+
+
 
     const createListE = (data, element) => {
 

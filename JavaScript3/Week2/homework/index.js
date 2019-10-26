@@ -28,6 +28,7 @@
         dataList.sort((a, b) => a.name.localeCompare(b.name));
         console.log(dataList)
         dataList.map((item) => {
+            console.log(item)
             const ulE = document.querySelector('.ul')
             const liE = createAndAppend('li', ulE, {
                 class: 'li'
@@ -36,7 +37,7 @@
                 text: item.name,
                 href: `#${item.name}`
             });
-            console.log(aHref.text)
+            //console.log(aHref.text)
 
             async function fetchContributorUrl(val) {
                 let responseContributorList = await fetch(item.contributors_url);
@@ -56,16 +57,18 @@
                         href: contributor.html_url,
                     });
 
+
                 })
             }
             aHref.addEventListener('click', event => {
-                let val = document.querySelector('#' + item.name)
+                let val = document.querySelector('#' + item.name);
+                console.log(val)
                 if (val == null) {
                     val = createListE(item);
                     fetchContributorUrl(val)
                 }
-                history.pushState(null, null, event.target.href)
-                event.stopPropagation();
+                // history.pushState(null, null, event.target.href)
+                // event.stopPropagation();
             });
         })
     }
