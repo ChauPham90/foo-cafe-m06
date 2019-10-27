@@ -7,7 +7,6 @@ class App {
 
     async initialize(url) {
         const root = document.getElementById('root');
-        Repository.CreateStructure(root)
         const header = Util.createAndAppend('header', root, { class: 'header' }); // TODO: replace with your own code
         const h1 = Util.createAndAppend('h1', header, { text: ' FOO M06' });
 
