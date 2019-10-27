@@ -5,14 +5,7 @@ class App {
         this.initialize(url);
     }
 
-    /**
-     * Initialization
-     * @param {string} url The GitHub URL for obtaining the organization's repositories.
-     */
     async initialize(url) {
-        // Add code here to initialize your app
-        // 1. Create the fixed HTML elements of your page
-        // 2. Make an initial XMLHttpRequest using Util.fetchJSON() to populate your <select> element
         const root = document.getElementById('root');
         const header = Util.createAndAppend('header', root, { class: 'header' }); // TODO: replace with your own code
         const h1 = Util.createAndAppend('h1', header, { text: ' FOO M06' });
@@ -35,7 +28,7 @@ class App {
             const repos = await Util.fetchJSON(url);
             this.repos = repos.map(repo => new Repository(repo));
             this.repos.forEach(function(e, index) {
-                //                console.log(e, index)
+                console.log(e)
                 const ulE = nav.querySelector('.ul')
                 const liE = Util.createAndAppend('li', ulE, {
                     class: 'li'
@@ -44,31 +37,23 @@ class App {
                     text: e.repository.name,
                     href: `#${e.repository.name}`
                 });
-                createListE(e.repository, ulE);
+                aHref.addEventListener('click', event => {
+                    history.pushState(null, null, event.target.href)
+                    event.stopPropagation();
+                    let val = document.querySelector('#' + e.repository.name);
+                    if (val == null) {
+                        val = createListE(e.repository, ulE);
+                        onReposLoaded(index)
+
+                    }
+
+                });
             })
-            onReposLoaded()
         } catch (error) {
             console.log(error)
             this.renderError(error);
         }
     }
-
-    /**
-     * Removes all child elements from a container element
-     * @param {*} container Container element to clear
-     */
-    static clearContainer(container) {
-        while (container.firstChild) {
-            container.removeChild(container.firstChild);
-        }
-    }
-
-    /**
-     * Fetch contributor information for the selected repository and render the
-     * repo and its contributors as HTML elements in the DOM.
-     * @param {number} index The array index of the repository.
-     */
-
 
     async fetchContributorsAndRender(index) {
         try {
@@ -97,24 +82,13 @@ class App {
         }
     }
 
-    /**
-     * Render an error to the DOM.
-     * @param {Error} error An Error object describing the error.
-     */
     renderError(error) {
-        console.log(error); // TODO: replace with your own code
+        console.log(error);
     }
 }
 
 const createListE = (data, element) => {
     const divContentE = document.querySelector('.content')
-    const liE = Util.createAndAppend('li', element, {
-        class: 'li'
-    });
-    Util.createAndAppend('a', liE, {
-        text: data.name,
-        href: `#${data.name}`
-    });
     const sectionE = Util.createAndAppend('section', divContentE, {
         id: data.name
     });
@@ -150,21 +124,15 @@ const createListE = (data, element) => {
     Util.createAndAppend('div', divE, {
         class: 'contri',
     });
-    const showHidenInfo = () => {
-        const repoInfo =
-            sectionE.querySelector('#repoInfo');
-        repoInfo.classList.toggle("active")
-    }
-    sectionE.addEventListener('click', () => showHidenInfo());
-    return sectionE
+
 }
 
 
 let app
 const REPOS_URL = 'https://api.github.com/orgs/foocoding/repos?per_page=100';
 
-function onReposLoaded() {
-    app.fetchContributorsAndRender(0)
+function onReposLoaded(index) {
+    app.fetchContributorsAndRender(index)
 }
 
 function showContent() {
