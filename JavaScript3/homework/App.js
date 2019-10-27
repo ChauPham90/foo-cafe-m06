@@ -81,7 +81,6 @@ class App {
             this.renderError(error);
         }
     }
-
     renderError(error) {
         console.log(error);
     }
