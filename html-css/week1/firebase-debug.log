@@ -1,0 +1,53 @@
+[debug] [2019-10-15T14:25:53.684Z] ----------------------------------------------------------------------
+[debug] [2019-10-15T14:25:53.687Z] Command:       /usr/local/bin/firebase /Users/Libra/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase serve
+[debug] [2019-10-15T14:25:53.687Z] CLI Version:   7.5.0
+[debug] [2019-10-15T14:25:53.687Z] Platform:      darwin
+[debug] [2019-10-15T14:25:53.687Z] Node Version:  v8.16.0
+[debug] [2019-10-15T14:25:53.688Z] Time:          Tue Oct 15 2019 16:25:53 GMT+0200 (CEST)
+[debug] [2019-10-15T14:25:53.688Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-10-15T14:25:53.699Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-15T14:25:53.699Z] > authorizing via signed-in user
+[debug] [2019-10-15T14:25:53.699Z] [iam] checking project chau-pham-portfolio-194ae for permissions ["firebase.projects.get"]
+[debug] [2019-10-15T14:25:53.701Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/chau-pham-portfolio-194ae:testIamPermissions  
+
+[debug] [2019-10-15T14:25:54.842Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-15T14:25:54.844Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/chau-pham-portfolio-194ae  
+ 
+[debug] [2019-10-15T14:25:55.112Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/Libra/Desktop/chau/foo-cafe-m06/html-css/week1'...
+[info] 
+[debug] [2019-10-15T14:25:55.117Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/chau-pham-portfolio-194ae/webApps/-/config  
+ 
+[debug] [2019-10-15T14:25:55.960Z] <<< HTTP RESPONSE 200
+[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5005
+[debug] [2019-10-15T14:28:59.179Z] ----------------------------------------------------------------------
+[debug] [2019-10-15T14:28:59.182Z] Command:       /usr/local/bin/firebase /Users/Libra/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase serve
+[debug] [2019-10-15T14:28:59.182Z] CLI Version:   7.5.0
+[debug] [2019-10-15T14:28:59.182Z] Platform:      darwin
+[debug] [2019-10-15T14:28:59.182Z] Node Version:  v8.16.0
+[debug] [2019-10-15T14:28:59.183Z] Time:          Tue Oct 15 2019 16:28:59 GMT+0200 (CEST)
+[debug] [2019-10-15T14:28:59.183Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-10-15T14:28:59.195Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-15T14:28:59.195Z] > authorizing via signed-in user
+[debug] [2019-10-15T14:28:59.195Z] [iam] checking project chau-pham-portfolio-194ae for permissions ["firebase.projects.get"]
+[debug] [2019-10-15T14:28:59.197Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/chau-pham-portfolio-194ae:testIamPermissions  
+
+[debug] [2019-10-15T14:29:00.290Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-15T14:29:00.295Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/chau-pham-portfolio-194ae  
+ 
+[debug] [2019-10-15T14:29:00.550Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/Libra/Desktop/chau/foo-cafe-m06/html-css/week1'...
+[info] 
+[debug] [2019-10-15T14:29:00.555Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/chau-pham-portfolio-194ae/webApps/-/config  
+ 
+[debug] [2019-10-15T14:29:01.102Z] <<< HTTP RESPONSE 200
+[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
+[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5010
