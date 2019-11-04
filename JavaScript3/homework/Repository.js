@@ -52,6 +52,25 @@ class Repository {
         });
 
     }
+    static BuildPageStructure() {
+        const root = document.getElementById('root');
+        const header = Util.createAndAppend('header', root, { class: 'header' }); // TODO: replace with your own code
+        const h1 = Util.createAndAppend('h1', header, { text: ' FOO M06' });
+
+        const main = Util.createAndAppend('main', root, { class: 'main' });
+        const divNav = Util.createAndAppend('div', main, { class: 'divNav' });
+        const nav = Util.createAndAppend('nav', divNav, { class: 'nav' });
+        const ul = Util.createAndAppend('ul', nav, { class: 'ul' });
+        const li = Util.createAndAppend('li', ul, { class: 'li' });
+        const a = Util.createAndAppend('a', li, { href: '#home', text: 'Home' });
+
+        const divConten = Util.createAndAppend('div', main, { class: 'content' });
+        const section = Util.createAndAppend('section', divConten, { id: 'home' });
+        const img = Util.createAndAppend('img', section, { src: "https://i.pinimg.com/564x/8b/d2/c8/8bd2c8e6223c5fa06347defaa3a83d82.jpg", alt: 'picture' });
+
+        const footer = Util.createAndAppend('footer', root);
+        const p = Util.createAndAppend('p', footer, { text: 'And I am still alive *-*' });
+    }
 
 
     fetchContributors() {
