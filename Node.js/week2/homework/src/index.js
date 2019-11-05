@@ -35,30 +35,39 @@ if (keyWord == 'help') {
             return console.log('file has alredy deleted');
     })
 } else if (keyWord == 'remove') {
-
+    let count = 0;
+    let deleteItem = false;
     let baseIndex = process.argv[3];
-    if (baseIndex == null) {
-        console.log('there is no item')
-    } else {
-        let count = 0;
-        lineReader.eachLine('list.txt', function(line, last) {
-            if (count != baseIndex) {
-                fs.appendFile('new.txt', line + "\n", function(err) {
-                    if (err)
-                        return console.log(err);
-                });
-            }
-
-            if (last) {
+    lineReader.eachLine('list.txt', function(line, last) {
+        count++;
+        if (baseIndex == null) {
+            console.log('there is no item')
+        } else if (count != baseIndex) {
+            fs.appendFile('new.txt', line + "\n", function(err) {
+                if (err)
+                    return console.log(err);
+            });
+        } else {
+            deleteItem = true;
+        }
+        if (last) {
+            if (deleteItem) {
                 fs.unlink('list.txt', function(err) {
                     if (err)
                         return console.log('file has alredy deleted');
                 })
                 fs.rename('new.txt', 'list.txt', function(err) {
                     if (err) throw err;
-                    console.log('renamed complete');
+                    console.log('remove %s!', baseIndex);
                 });
+            } else {
+                fs.unlink('new.txt', function(err) {
+                    if (err)
+                        return console.log('file has alredy deleted');
+                })
+                console.log('there is no such item.')
             }
-        });
-    }
+        }
+    });
+
 }

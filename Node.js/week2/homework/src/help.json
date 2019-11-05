@@ -1,0 +1,6 @@
+{
+    "node index.js add": "add item",
+    "node index.js remove": "remove item",
+    "node index.js reset": "Removes all items from the to-do list"
+
+}
