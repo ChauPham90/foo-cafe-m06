@@ -1,23 +1,4 @@
-/* eslint-disable prettier/prettier */
-'use strict';
-
-{
-    function fetchJSON(url, cb) {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', url);
-        xhr.responseType = 'json';
-        xhr.onload = () => {
-            if (xhr.status < 400) {
-                cb(null, xhr.response);
-                console.log(xhr.response);
-            } else {
-                cb(new Error(`Network error: ${xhr.status} - ${xhr.statusText}`));
-            }
-        };
-        xhr.onerror = () => cb(new Error('Network request failed'));
-        xhr.send();
-    }
-
+'use strict'; {
     function createAndAppend(name, parent, options = {}) {
         const elem = document.createElement(name);
         parent.appendChild(elem);
@@ -31,21 +12,116 @@
         });
         return elem;
     }
+    async function fetchJSONByUsingAwait(url) {
+        let response;
+        try {
+            response = await fetch(url);
+            let dataList = await response.json();
+            dataList.sort((a, b) => a.name.localeCompare(b.name));
+            console.log(dataList)
+            dataList.map((item) => {
+                const ulE = document.querySelector('.ul')
+                const val = createListE(item, ulE);
+                async function fetchContributorUrl() {
+                    // let responseContributorList = await fetch(item.contributors_url);
+                    let dataListContributor = await responseContributorList.json();
+                    dataListContributor.map((contributor) => {
+                        const divContri = val.querySelector('.contri');
+                        const divLinkAndImg = createAndAppend('div', divContri, {
+                            class: 'divLinkAndImg'
+                        });
+                        createAndAppend('img', divLinkAndImg, {
+                            class: 'img',
+                            src: contributor.avatar_url,
+                        });
+                        createAndAppend('a', divLinkAndImg, {
+                            id: 'a',
+                            text: contributor.login,
+                            href: contributor.html_url,
+                        });
+
+                    })
+                }
+                fetchContributorUrl()
+            })
+        } catch (err) {
+            console.log('found errs' + err.message)
+        }
+
+    }
+
+
+
+
+    const createListE = (data, element) => {
+
+        const divContentE = document.querySelector('.content')
+        const liE = createAndAppend('li', element, {
+            class: 'li'
+        });
+        createAndAppend('a', liE, {
+            text: data.name,
+            href: `#${data.name}`
+        });
+        const sectionE = createAndAppend('section', divContentE, {
+            id: data.name
+        });
+        const h2E = createAndAppend('h2', sectionE, {
+            text: 'MODULE ',
+            class: 'h2'
+        });
+        createAndAppend('span', h2E, {
+            text: data.name,
+            id: 'span'
+        });
+        const divE = createAndAppend('div', sectionE, {
+            id: 'repoInfo',
+        });
+        const moduleDetail = createAndAppend('div', divE, {
+            class: ' moduleDetail'
+
+        });
+        createAndAppend('a', moduleDetail, {
+            class: data.name,
+            href: data.html_url,
+            text: 'Github link'
+        });
+        createAndAppend('p', moduleDetail, {
+            text: `Description: ${data.description}`
+        });
+        createAndAppend('p', moduleDetail, {
+            text: `Forks : ${data.forks_count}`
+        });
+        createAndAppend('p', moduleDetail, {
+            text: `Updated : ${data.updated_at}`
+        });
+        createAndAppend('div', divE, {
+            class: 'contri',
+        });
+        const showHidenInfo = () => {
+            const repoInfo =
+                sectionE.querySelector('#repoInfo');
+            repoInfo.classList.toggle("active")
+        }
+        sectionE.addEventListener('click', () => showHidenInfo());
+        return sectionE
+    }
 
     function main(url) {
-        fetchJSON(url, (err, data) => {
-            const root = document.getElementById('root');
-            if (err) {
-                createAndAppend('div', root, { text: err.message, class: 'alert-error' });
-            } else {
-                createAndAppend('pre', root, { text: JSON.stringify(data, null, 2) });
-            }
-        });
+        document.getElementById('root');
+        fetchJSONByUsingAwait(url);
 
-        // get repos
     }
 
     const REPOS_URL = 'https://api.github.com/orgs/foocoding/repos?per_page=100';
-    console.log(main(REPOS_URL));
-    window.onload = () => main(REPOS_URL);
+
+    function showContent() {
+        if (document.querySelectorAll("section:target").length == 0) {
+            window.location = "#home";
+        }
+    }
+    window.onload = () => {
+        showContent()
+        main(REPOS_URL)
+    };
 }
