@@ -117,79 +117,67 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../../../../.npm/_npx/1116/lib/node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"Util.js":[function(require,module,exports) {
+'use strict'; // eslint-disable-next-line no-unused-vars
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Util =
+/*#__PURE__*/
+function () {
+  function Util() {
+    _classCallCheck(this, Util);
   }
 
-  return bundleURL;
-}
+  _createClass(Util, null, [{
+    key: "createAndAppend",
+    value: function createAndAppend(name, parent) {
+      var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      var elem = document.createElement(name);
+      parent.appendChild(elem);
+      Object.keys(options).forEach(function (key) {
+        var value = options[key];
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
+        if (key === 'text') {
+          elem.textContent = value;
+        } else {
+          elem.setAttribute(key, value);
+        }
+      });
+      return elem;
     }
-  }
+  }, {
+    key: "fetchJSON",
+    value: function fetchJSON(url) {
+      return new Promise(function (resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url);
+        xhr.responseType = 'json';
 
-  return '/';
-}
+        xhr.onload = function () {
+          if (xhr.status < 400) {
+            resolve(xhr.response);
+          } else {
+            reject(new Error("Network error: ".concat(xhr.status, " - ").concat(xhr.statusText)));
+          }
+        };
 
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
+        xhr.onerror = function () {
+          return reject(new Error('Network request failed'));
+        };
 
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../../../../.npm/_npx/1116/lib/node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
+        xhr.send();
+      });
     }
+  }]);
 
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../../../../../.npm/_npx/1116/lib/node_modules/parcel/src/builtins/bundle-url.js"}],"style.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../.npm/_npx/1116/lib/node_modules/parcel/src/builtins/css-loader.js"}],"../../../../../.npm/_npx/1200/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+  return Util;
+}();
+},{}],"../../../../../.npm/_npx/1200/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -393,5 +381,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../.npm/_npx/1200/lib/node_modules/parcel/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/style.e308ff8e.js.map
+},{}]},{},["../../../../../.npm/_npx/1200/lib/node_modules/parcel/src/builtins/hmr-runtime.js","Util.js"], null)
+//# sourceMappingURL=/Util.dadf1c5b.js.map

@@ -117,79 +117,196 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../../../../.npm/_npx/1116/lib/node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"App.js":[function(require,module,exports) {
+'use strict';
+/* global Util, Repository, Contributor */
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var App =
+/*#__PURE__*/
+function () {
+  function App(url) {
+    _classCallCheck(this, App);
+
+    this.initialize(url);
   }
 
-  return bundleURL;
-}
+  _createClass(App, [{
+    key: "initialize",
+    value: function initialize(url) {
+      var root, header, h1, main, divNav, nav, ul, li, a, divConten, section, img, footer, p, repos;
+      return regeneratorRuntime.async(function initialize$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              root = document.getElementById('root');
+              header = Util.createAndAppend('header', root, {
+                class: 'header'
+              }); // TODO: replace with your own code
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+              h1 = Util.createAndAppend('h1', header, {
+                text: ' FOO M06'
+              });
+              main = Util.createAndAppend('main', root, {
+                class: 'main'
+              });
+              divNav = Util.createAndAppend('div', main, {
+                class: 'divNav'
+              });
+              nav = Util.createAndAppend('nav', divNav, {
+                class: 'nav'
+              });
+              ul = Util.createAndAppend('ul', nav, {
+                class: 'ul'
+              });
+              li = Util.createAndAppend('li', ul, {
+                class: 'li'
+              });
+              a = Util.createAndAppend('a', li, {
+                href: '#home',
+                text: 'Home'
+              });
+              divConten = Util.createAndAppend('div', main, {
+                class: 'content'
+              });
+              section = Util.createAndAppend('section', divConten, {
+                id: 'home'
+              });
+              img = Util.createAndAppend('img', section, {
+                src: "https://i.pinimg.com/564x/8b/d2/c8/8bd2c8e6223c5fa06347defaa3a83d82.jpg",
+                alt: 'picture'
+              });
+              footer = Util.createAndAppend('footer', root);
+              p = Util.createAndAppend('p', footer, {
+                text: 'And I am still alive *-*'
+              });
+              _context.prev = 14;
+              _context.next = 17;
+              return regeneratorRuntime.awrap(Util.fetchJSON(url));
 
-    if (matches) {
-      return getBaseURL(matches[0]);
+            case 17:
+              repos = _context.sent;
+              this.repos = repos.map(function (repo) {
+                return new Repository(repo);
+              });
+              this.repos.forEach(function (e, index) {
+                console.log(e);
+                var ulE = nav.querySelector('.ul');
+                var liE = Util.createAndAppend('li', ulE, {
+                  class: 'li'
+                });
+                var aHref = Util.createAndAppend('a', liE, {
+                  text: e.repository.name,
+                  href: "#".concat(e.repository.name)
+                });
+                aHref.addEventListener('click', function (event) {
+                  history.pushState(null, null, event.target.href);
+                  event.stopPropagation();
+                  var val = document.querySelector('#' + e.repository.name);
+
+                  if (val == null) {
+                    val = Repository.createListE(e.repository, ulE);
+                    onReposLoaded(index);
+                  }
+                });
+              });
+              _context.next = 26;
+              break;
+
+            case 22:
+              _context.prev = 22;
+              _context.t0 = _context["catch"](14);
+              console.log(_context.t0);
+              this.renderError(_context.t0);
+
+            case 26:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, null, this, [[14, 22]]);
     }
-  }
+  }, {
+    key: "fetchContributorsAndRender",
+    value: function fetchContributorsAndRender(index) {
+      var repo, contributors, val;
+      return regeneratorRuntime.async(function fetchContributorsAndRender$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              repo = this.repos[index];
+              _context2.next = 4;
+              return regeneratorRuntime.awrap(repo.fetchContributors());
 
-  return '/';
-}
+            case 4:
+              contributors = _context2.sent;
+              val = document.querySelector('#' + repo.repository.name);
+              contributors.map(function (contributor) {
+                return new Contributor(contributor);
+              }).forEach(function (contributor) {
+                var divContri = val.querySelector('.contri');
+                var divLinkAndImg = Util.createAndAppend('div', divContri, {
+                  class: 'divLinkAndImg'
+                });
+                Util.createAndAppend('img', divLinkAndImg, {
+                  class: 'img',
+                  src: contributor.contributor.avatar_url
+                });
+                Util.createAndAppend('a', divLinkAndImg, {
+                  id: 'a',
+                  text: contributor.contributor.login,
+                  href: contributor.contributor.html_url
+                });
+              });
+              _context2.next = 12;
+              break;
 
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
+            case 9:
+              _context2.prev = 9;
+              _context2.t0 = _context2["catch"](0);
+              this.renderError(_context2.t0);
 
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../../../../.npm/_npx/1116/lib/node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
+            case 12:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, null, this, [[0, 9]]);
     }
+  }, {
+    key: "renderError",
+    value: function renderError(error) {
+      console.log(error);
+    }
+  }]);
 
-    cssTimeout = null;
-  }, 50);
+  return App;
+}();
+
+var app;
+var REPOS_URL = 'https://api.github.com/orgs/foocoding/repos?per_page=100';
+
+function onReposLoaded(index) {
+  app.fetchContributorsAndRender(index);
 }
 
-module.exports = reloadCSS;
-},{"./bundle-url":"../../../../../.npm/_npx/1116/lib/node_modules/parcel/src/builtins/bundle-url.js"}],"style.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
+function showContent() {
+  if (document.querySelectorAll("section:target").length == 0) {
+    window.location = "#home";
+  }
+}
 
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../.npm/_npx/1116/lib/node_modules/parcel/src/builtins/css-loader.js"}],"../../../../../.npm/_npx/1200/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+window.onload = function () {
+  app = new App(REPOS_URL);
+  showContent();
+};
+},{}],"../../../../../.npm/_npx/1200/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -393,5 +510,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../.npm/_npx/1200/lib/node_modules/parcel/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/style.e308ff8e.js.map
+},{}]},{},["../../../../../.npm/_npx/1200/lib/node_modules/parcel/src/builtins/hmr-runtime.js","App.js"], null)
+//# sourceMappingURL=/App.d36a57b6.js.map
