@@ -1,6 +1,6 @@
- SELECT name FROM city WHERE population > 8000000;
- SELECT name FROM city WHERE name LIKE '%land';
- SELECT name FROM city  WHERE population BETWEEN 500000 AND 1000000;
+SELECT name FROM city WHERE population > 8000000;
+SELECT name FROM city WHERE name LIKE '%land';
+SELECT name FROM city  WHERE population BETWEEN 500000 AND 1000000;
 SELECT name FROM country WHERE continent LIKE '%Europe';
 SELECT name FROM country  ORDER BY surfaceArea DESC;
 SELECT city.name  FROM city    INNER JOIN    country  ON city.countrycode = country.code where country.name ='Netherlands' ;
