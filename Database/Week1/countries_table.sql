@@ -17,3 +17,16 @@ INSERT INTO countries VALUES ( 7,'Philippines', '108.116 million',' Asia',' 300,
 INSERT INTO countries VALUES (8, 'Vietnam' ,' 96.46 million',' Asia', '331,210 km²'  );
 INSERT INTO countries VALUES (9, 'Thailand','69,62 million','Asia','513,120 km²');
 INSERT INTO countries VALUES (10, 'Japan','126,707 million','Asia','377,973 km²');
+
+-- fix table
+ALTER TABLE countries ADD COLUMN country_code VARCHAR(10);
+UPDATE countries set country_code = 'DNK' where country_id = 1
+UPDATE countries set country_code = 'FIN' where country_id = 2;
+UPDATE countries set country_code = 'ISL' where country_id = 3;
+UPDATE countries set country_code = 'NOR' where country_id = 4;
+UPDATE countries set country_code = 'SWE' where country_id = 5;
+UPDATE countries set country_code = 'MYS' where country_id = 6;
+UPDATE countries set country_code = 'PHL' where country_id = 7;
+UPDATE countries set country_code = 'VNM' where country_id = 8;
+UPDATE countries set country_code = 'THA' where country_id = 9;
+UPDATE countries set country_code = 'JPN' where country_id = 10;
