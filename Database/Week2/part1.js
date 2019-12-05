@@ -39,18 +39,19 @@ prompt.get(prompt_attributes, function showCapital(err, result) {
         let language = result.spokenlanguage;
         let officialLanguage = result.officialLanguage;
         let sameRegion = result.FindSameRegionIn;
-
+        //4.List all the continents with the number of languages spoken in each continent
         connection.execute(
-            "SELECT c.continent, COUNT(co.language) AS N FROM Country c JOIN countrylanguage co ON c.code = co.countrycode where isOfficial = 't'  GROUP BY continent ORDER BY N",
-            function showCapital(err, results) {
-                if (err) {
-                    console.log(err);
-                    return -1;
-                } else {
-                    console.log(`the number of languages spoken in each continent`, results);
+                "SELECT c.continent, COUNT(DISTINCT co.language) AS N FROM Country c JOIN countrylanguage co ON c.code = co.countrycode GROUP BY continent ORDER BY N",
+                function showCapital(err, results) {
+                    if (err) {
+                        console.log(err);
+                        return -1;
+                    } else {
+                        console.log(`the number of languages spoken in each continent`, results);
+                    }
                 }
-            }
-        )
+            )
+            //1. What is the capital of country X ? (Accept X from user)
         if (data != null) {
             connection.execute(
                 'SELECT ci.name FROM country c join city ci On c.capital = ci.id where c.name = ? ', [data],
@@ -64,10 +65,10 @@ prompt.get(prompt_attributes, function showCapital(err, result) {
                 }
             )
         };
-
+        //2.list all the languages spoken in the region Y (Accept Y from user)
         if (region != null) {
             connection.execute(
-                'SELECT co.language  FROM countrylanguage co    INNER JOIN    country c  ON co.countrycode = c.code and co.IsOfficial ="T"  where c.region = ?', [region],
+                'SELECT DISTINCT co.language  FROM countrylanguage co    INNER JOIN    country c  ON co.countrycode = c.code where c.region = ?', [region],
                 function showCapital(err, results) {
                     if (err) {
                         console.log(err);
@@ -79,7 +80,7 @@ prompt.get(prompt_attributes, function showCapital(err, result) {
                 }
             )
         }
-
+        //3.Find the number of cities in which language Z is spoken (Accept Z from user)
         if (language != null) {
             connection.execute(
                 ' SELECT city.name from city inner join countrylanguage on countrylanguage.countrycode = city.countrycode where countrylanguage.language = ?', [language],
@@ -93,10 +94,10 @@ prompt.get(prompt_attributes, function showCapital(err, result) {
                 }
             )
         }
-
-        if (officialLanguage != null) {
+        //5.Are there any countries that have Same official language and same region
+        if (officialLanguage != null && sameRegion != null) {
             connection.execute(
-                " SELECT name FROM country WHERE code IN  (SELECT countrycode FROM countryLanguage WHERE IsOfficial = 't' AND language = ?)", [officialLanguage],
+                " SELECT name,region FROM country WHERE region = ? AND code IN  (SELECT countrycode FROM countryLanguage WHERE IsOfficial = 't' AND language = ?)", [sameRegion, officialLanguage],
                 function showCapital(err, results) {
                     if (err) {
                         console.log(err);
@@ -105,19 +106,6 @@ prompt.get(prompt_attributes, function showCapital(err, result) {
                         return console.log(`countries have the same official language:${false}`, )
                     } else {
                         console.log(`countries have the same official language`, results);
-                    }
-                }
-            )
-        }
-        if (sameRegion != null) {
-            connection.execute(
-                'SELECT name FROM country where region = ? ', [sameRegion],
-                function showCapital(err, results) {
-                    if (err) {
-                        console.log(err);
-                        return -1;
-                    } else {
-                        console.log(`countries that have the same region is `, results);
                     }
                 }
             )
