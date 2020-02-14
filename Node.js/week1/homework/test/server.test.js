@@ -32,11 +32,11 @@ function testCmd(state, ...methods) {
                     .get(`/${method}`)
                     .timeout(TIMEOUT);
             }
-        catch (err) {
-            return t.fail(
-                `Expected server to respond without an error, got: ${err.message}`
-            );
-        }
+            catch (err) {
+                return t.fail(
+                    `Expected server to respond without an error, got: ${err.message}`
+                );
+            }
 
         t.is(response.status, 200, 'Expected status code to be 200');
         t.is(response.headers['content-type'], 'application/json',

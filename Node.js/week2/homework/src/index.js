@@ -35,6 +35,7 @@ if (keyWord == 'help') {
             return console.log('file has alredy deleted');
     })
 } else if (keyWord == 'remove') {
+<<<<<<< HEAD
     let count = 0;
     let deleteItem = false;
     let baseIndex = process.argv[3];
@@ -52,12 +53,30 @@ if (keyWord == 'help') {
         }
         if (last) {
             if (deleteItem) {
+=======
+
+    let baseIndex = process.argv[3];
+    if (baseIndex == null) {
+        console.log('there is no item')
+    } else {
+        let count = 0;
+        lineReader.eachLine('list.txt', function(line, last) {
+            if (count != baseIndex) {
+                fs.appendFile('new.txt', line + "\n", function(err) {
+                    if (err)
+                        return console.log(err);
+                });
+            }
+
+            if (last) {
+>>>>>>> nodeWeek1
                 fs.unlink('list.txt', function(err) {
                     if (err)
                         return console.log('file has alredy deleted');
                 })
                 fs.rename('new.txt', 'list.txt', function(err) {
                     if (err) throw err;
+<<<<<<< HEAD
                     console.log('remove %s!', baseIndex);
                 });
             } else {
@@ -70,4 +89,11 @@ if (keyWord == 'help') {
         }
     });
 
+=======
+                    console.log('renamed complete');
+                });
+            }
+        });
+    }
+>>>>>>> nodeWeek1
 }
