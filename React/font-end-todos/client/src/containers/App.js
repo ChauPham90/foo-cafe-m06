@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles.css";
-import Form from "./components/Form/Form";
-import Todo from "./components/addTodo/Todo";
+import Form from "../components/Form/Form";
+import Todo from "../components/addTodo/Todo";
 
 export default function App() {
     const URL = "https://g9kzg.sse.codesandbox.io/";
