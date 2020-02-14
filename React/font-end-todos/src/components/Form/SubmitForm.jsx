@@ -1,15 +1,24 @@
-import { todos, setTodos, setValue, value } from "../../App.js";
+import React, { useState } from "react";
+import Form from "./Form";
 
-function addTodo(text) {
-  let newTodo = [...todos, { text }];
-  setTodos(newTodo);
-}
+const SubmitForm = pros => {
+    function handleSubmit(e) {
+        e.preventDefault();
 
-function handleSubmit(e) {
-  e.preventDefault();
-  if (!value) return;
-  addTodo(value);
-  setValue("");
-}
+    }
+    function addData() {
+        pros.addTodo(pros.value);
+        pros.setValue("");
+    }
+    return (
+        <Form
+            className="input"
+            value={pros.value}
+            onChange={e => pros.setValue(e.target.value)}
+            onSubmit={handleSubmit}
+            addDaTa={addData}
+        />
+    );
+};
 
-export default { handleSubmit, addTodo };
+export default SubmitForm;
