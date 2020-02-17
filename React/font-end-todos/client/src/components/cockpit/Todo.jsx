@@ -1,17 +1,19 @@
 import React, { useState } from "react";
+import Button from '../UI/Button'
 
-const Todo = ({ todo, onClick, deleteItem }) => {
+const Todo = ({ todo, click, remove, key }) => {
     const style = {
         textDecoration: todo.isCompleted ? "line-through" : ""
     }
     return (
         <div>
-            <p onClick={onClick} style={style}>
+            <p onClick={click} style={style} key={key}>
                 {todo.text}
             </p>
-            <button onClick={deleteItem}>x</button>
+            <Button children='add' clicked={remove} />
         </div>
     )
 };
+
 
 export default Todo;
