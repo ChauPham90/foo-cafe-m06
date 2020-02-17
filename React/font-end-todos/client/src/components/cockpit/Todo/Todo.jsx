@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from '../UI/Button'
+import Button from '../../UI/Button'
 
 const Todo = ({ todo, click, remove, key }) => {
     const style = {
@@ -10,7 +10,7 @@ const Todo = ({ todo, click, remove, key }) => {
             <p onClick={click} style={style} key={key}>
                 {todo.text}
             </p>
-            <Button children='add' clicked={remove} />
+            <Button children='x' clicked={remove} />
         </div>
     )
 };

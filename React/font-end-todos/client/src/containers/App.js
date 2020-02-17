@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
 import Form from "../components/Form/Form";
 import Cockpit from "../components/cockpit/Cockpit";
@@ -10,10 +10,12 @@ export default function App() {
         { text: "first task", isCompleted: false }
     ]);
 
+
     function addTodo(text) {
         let newTodo = [...todos, { text }];
         setTodos(newTodo);
     }
+
 
     return (
         <div className="App">
