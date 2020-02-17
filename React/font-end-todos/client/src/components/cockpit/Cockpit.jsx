@@ -1,9 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Todo from './Todo'
 
 
 export default function Cockpit({ todos, setTodos }) {
     const URL = 'http://localhost:5000/'
+
+    const [data, setData] = useState([]);
+
+    // useEffect(() => {
+    //     fetch(URL)
+    //         .then((response) => {
+    //             return response.json();
+    //         })
+    //         .then((myJson) => {
+    //             setData(myJson)
+    //         });
+    // }, [])
+
+    // console.log(data)
+
 
     function completeTodo(index) {
         let newState = [...todos];

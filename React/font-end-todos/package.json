@@ -5,6 +5,9 @@
     "keywords": [],
     "main": "src/index.js",
     "dependencies": {
+        "fastify": "^2.12.0",
+        "fastify-cors": "^3.0.1",
+        "pg": "^7.18.1",
         "react": "16.12.0",
         "react-dom": "16.12.0",
         "react-scripts": "3.0.1"
@@ -27,5 +30,5 @@
         "not ie <= 11",
         "not op_mini all"
     ],
-    "proxy": "http://localhost:5000"
+    "proxy": "http://localhost:3000"
 }
