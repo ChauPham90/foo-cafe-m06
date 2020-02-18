@@ -3,21 +3,20 @@ import Todo from './Todo'
 
 
 export default function Cockpit({ todos, setTodos }) {
-    const URL = 'http://localhost:5000/'
+    const URL = 'http://127.0.0.1:5000/'
 
     const [data, setData] = useState([]);
 
-    // useEffect(() => {
-    //     fetch(URL)
-    //         .then((response) => {
-    //             return response.json();
-    //         })
-    //         .then((myJson) => {
-    //             setData(myJson)
-    //         });
-    // }, [])
+    useEffect(() => {
+        fetch(URL)
+            .then((response) => {
+                return response.json();
+            })
+            .then((myJson) => {
+                setTodos(myJson)
+            });
+    }, [])
 
-    // console.log(data)
 
 
     function completeTodo(index) {
@@ -27,11 +26,23 @@ export default function Cockpit({ todos, setTodos }) {
         console.log(index);
     }
 
-    function removeTodo(index) {
-        let notItem = [...todos];
-        notItem.splice(index, 1);
-        setTodos(notItem);
-        console.log(index);
+    function removeTodo(index, id) {
+        fetch(`${URL}${todos[index].id}`, { method: "DELETE", mode: "cors" })
+            .then(() => {
+                //                setTodos(todos.filter(todo => todo.id !== id));
+                let notItem = [...todos];
+                notItem.splice(index, 1);
+                setTodos(notItem);
+                console.log(index);
+                console.log(todos[index].id)
+                console.log(`${URL}${todos[index].id}`)
+
+            })
+            .catch(err => {
+                console.log(err.message);
+                console.log(err);
+            });
+
     }
 
     return (todos.map((todo, key) => (

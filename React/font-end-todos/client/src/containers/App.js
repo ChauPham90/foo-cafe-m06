@@ -9,9 +9,7 @@ export default function App() {
     const [todos, setTodos] = useState([
         { text: "first task", isCompleted: false }
     ]);
-    const URL = 'http://127.0.0.1:3000/'
-
-
+    const URL = 'http://127.0.0.1:5000'
     useEffect(() => {
         fetch(URL)
             .then((response) => {
@@ -22,12 +20,28 @@ export default function App() {
             });
     }, [])
 
-    console.log(todos)
-
     function addTodo(text) {
-        let newTodo = [...todos, { text }];
-        setTodos(newTodo);
-    }
+        fetch(URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            mode: "cors",
+            body: JSON.stringify(text)
+        })
+            .then(response => response.json())
+            .then(() => {
+                //setUsers([...users, user]);
+                let newTodo = [...todos, { text }];
+                setTodos(newTodo);
+
+            })
+            .catch(err => {
+                console.log(err.message);
+            });
+    };
+
+
 
     return (
         <div className="App">
