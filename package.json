@@ -1,6 +1,9 @@
 {
     "name": "font-end-todos",
     "version": "1.0.0",
+    "engines": {
+        "node": "v10.16.3"
+    },
     "description": "",
     "keywords": [],
     "main": "client/src/index.js",
