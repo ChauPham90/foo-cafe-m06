@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "keywords": [],
-    "main": "src/index.js",
+    "main": "client/src/index.js",
     "dependencies": {
         "fastify": "^2.12.0",
         "fastify-cors": "^3.0.1",
@@ -21,7 +21,7 @@
         "build": "react-scripts build",
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
-        "server": "nodemon node.js",
+        "server": "nodemon server/node.js",
         "client": "npm start --prefix client",
         "dev": "concurrently \"npm run server\" \"npm run client\""
     },
