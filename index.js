@@ -2,6 +2,7 @@ const fastify = require("fastify");
 const fastifyCors = require("fastify-cors");
 const { Client } = require("pg");
 const server = fastify({ logger: true });
+const cool = require('cool-ascii-faces')
 server.register(fastifyCors);
 // set up Client
 const Boss = 'postgres://edgynoqk:ojK2CcvZglU39aSymmBIMP9m7SlD6GDs@otto.db.elephantsql.com:5432/edgynoqk'
@@ -22,6 +23,7 @@ server.get("/:id", async (req, res) => {
     const result = await client.query(sql, value);
     res.send(result.rows);
 });
+server.get('/cool', (req, res) => res.send(cool()))
 
 
 server.post("/", async (req, res) => {
@@ -41,7 +43,7 @@ server.delete("/:id", async (req, res) => {
     console.log(sql);
 });
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || '0.0.0.0'
 
 const boot = async () => {
     await client.connect();
