@@ -3,7 +3,7 @@ import Todo from './Todo'
 
 
 export default function Cockpit({ todos, setTodos }) {
-    const URL = 'http://127.0.0.1:5000/'
+    const URL = 'https://full-stack-todolist-m6.herokuapp.com'
 
     const [data, setData] = useState([]);
 
@@ -13,6 +13,7 @@ export default function Cockpit({ todos, setTodos }) {
                 return response.json();
             })
             .then((myJson) => {
+                console.log(myJson)
                 setTodos(myJson)
             });
     }, [])
